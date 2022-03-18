@@ -1,38 +1,18 @@
 'use strict';
 
-let lang = prompt('Выбор языка (ru,en)', 'ru');
+let text = prompt('Введите что-нибудь');
 
-if (lang === "ru"){
-    console.log('Воскресенье' + " " + 'Понедельник' + " " + 'Вторник' + " " + 'Среда' + " " + 'Четверг' + " " + 'Пятница' + " " + 'Суббота')
+const AbobaZeleboba = function(a){
+    if (typeof a !== 'string') {
+        console.log('в качестве аргумента передана не строка')
+    }
+    else if (typeof a === "string" && a.length > 30) {
+        a.trim()
+        console.log(a.slice(1,30) + '...')
+    }
+    else if (a.length < 30) {
+        console.log(a)
+    }
 }
-else if (lang === "en"){
-    console.log('Monday' + " " + 'Tuesday' + " " + 'Wednesday' + " " + 'Thursday' + " " + 'Friday' + " " + 'Saturday' + " " + 'Sunday')
-}
-else{
-    console.log("Ошибка")
-}
 
-
-
-switch (lang) {
-    case "ru":
-        console.log('Воскресенье' + " " + 'Понедельник' + " " + 'Вторник' + " " + 'Среда' + " " + 'Четверг' + " " + 'Пятница' + " " + 'Суббота')
-        break;
-    case "en":
-        console.log('Monday' + " " + 'Tuesday' + " " + 'Wednesday' + " " + 'Thursday' + " " + 'Friday' + " " + 'Saturday' + " " + 'Sunday')
-        break;
-    default:
-        console.log('Ошибка')
-        break;
-} 
-
-
-const langWeek = {
-ru:['Воскресенье' + " " + 'Понедельник' + " " + 'Вторник' + " " + 'Среда' + " " + 'Четверг' + " " + 'Пятница' + " " + 'Суббота'] , 
-en:['Monday' + " " + 'Tuesday' + " " + 'Wednesday' + " " + 'Thursday' + " " + 'Friday' + " " + 'Saturday' + " " + 'Sunday']
-}
-console.log(langWeek[lang]);
-
-
-let namePerson = prompt('Введите Имя');
-console.log((namePerson === 'Артем') ? 'директор' : (namePerson === 'Александр') ? 'преподаватель' : 'студент');
+AbobaZeleboba(text)
