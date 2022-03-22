@@ -1,18 +1,36 @@
 'use strict';
 
-let text = prompt('Введите что-нибудь');
+let arr = ['111111', '222222', '333333', '444444', '123123', '123123123', '232323'];
 
-const AbobaZeleboba = function(a){
-    if (typeof a !== 'string') {
-        console.log('в качестве аргумента передана не строка')
-    }
-    else if (typeof a === "string" && a.length > 30) {
-        a.trim()
-        console.log(a.slice(1,30) + '...')
-    }
-    else if (a.length < 30) {
-        console.log(a)
+const toNumber = function getToNumber(num) {
+    num = Number(num)
+    return num
+}
+
+const toString = function getToString(num) {
+    num = String(num)
+    return num
+}
+
+function newArr() {
+    for (let i = 0; i < arr.length; i++) {
+        if (toNumber(arr[i].split('')[0]) === 2 || toNumber(arr[i].split('')[0]) === 4) {
+            console.log(toString(arr[i]))   
+        }
     }
 }
 
-AbobaZeleboba(text)
+function easyNum() {
+    checkI: for (let i = 2; i < 101; i++) {
+
+        for (let j = 2; j < i; j++) {
+            if (i % j == 0) {
+                continue checkI;
+            }
+        }
+        console.log(i + ' Дулители данного числа: 1, ' + i)
+    }
+}
+
+easyNum();
+newArr();
