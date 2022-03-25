@@ -1,36 +1,22 @@
 'use strict';
+let week = ['monday', 'tuesday', 'wednesday', 'thurdsday', 'friday', 'saturday', 'sunday']
+let str = ''
+const body = document.querySelector('body')
+const newDiv = document.createElement('div')
+const todayDay = new Date();
 
-let arr = ['111111', '222222', '333333', '444444', '123123', '123123123', '232323'];
-
-const toNumber = function getToNumber(num) {
-    num = Number(num)
-    return num
-}
-
-const toString = function getToString(num) {
-    num = String(num)
-    return num
-}
-
-function newArr() {
-    for (let i = 0; i < arr.length; i++) {
-        if (toNumber(arr[i].split('')[0]) === 2 || toNumber(arr[i].split('')[0]) === 4) {
-            console.log(toString(arr[i]))   
-        }
+week.forEach(function (item, index, array) {
+    if (item == 'sunday' || item == 'saturday' && index !== todayDay.getDay()) {
+        str += item.italics() + ' endOfWeek'.italics() + '<br>'
+        console.log(item + ' sunday/saturday')
+    } else if (index !== todayDay.getDay()){
+        str += item + '<br>'
+        console.log(item)
+    } else if (index === todayDay.getDay()) {
+        str += item.bold() + ' today'.bold() + '<br>'
+        console.log(item + ' today')
     }
-}
+    newDiv.innerHTML = str
 
-function easyNum() {
-    checkI: for (let i = 2; i < 101; i++) {
-
-        for (let j = 2; j < i; j++) {
-            if (i % j == 0) {
-                continue checkI;
-            }
-        }
-        console.log(i + ' Дулители данного числа: 1, ' + i)
-    }
-}
-
-easyNum();
-newArr();
+    body.append(newDiv)
+})
