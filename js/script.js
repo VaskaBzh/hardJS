@@ -1,6 +1,14 @@
 'use strict'
 
-const element = document.createElement('div')
+const body = document.querySelector('body')
+const elementOne = document.createElement('div')
+const elementTwo = document.createElement('div')
+
+elementOne.style.paddingTop = "24px"
+elementOne.style.paddingLeft = "24px"
+elementTwo.style.paddingTop = "12px"
+elementTwo.style.paddingLeft = "24px"
+
 const getTodayDate1 = function() {
     let todayDate = new Date();
     let weekDay;
@@ -110,8 +118,8 @@ const getTodayDate1 = function() {
     }
 
     result = 'Сегодня ' + weekDay + ', ' + date + ' ' + mon + ' ' + year + ' года ' + getHour() + ' ' + getMinute() + ' ' + getSecond();
-    element.textContent = result
-    console.log(result)
+    elementOne.textContent = result
+    body.append(elementOne)
 }
 
 const getTodayDate2 = function() {
@@ -154,8 +162,8 @@ const getTodayDate2 = function() {
     zeroToTime();
 
     result = date + '.' + mon + '.' + year + ' - ' + hour + ':' + minute + ':' + seconds
-    element.textContent = result
-    console.log(result)
+    elementTwo.textContent = result
+    body.append(elementTwo)
 };
 
 setInterval(getTodayDate1, 1000);
